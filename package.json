@@ -1,0 +1,19 @@
+{
+  "name": "reproductor-musical-codewebstudio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "eslint": "^9.27.0",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "howler.js": "^2.1.2",
+    "reproductor-musical-codewebstudio": "file:"
+  }
+}

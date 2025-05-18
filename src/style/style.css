@@ -1,0 +1,351 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic");
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #111;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at center,
+    #00ffcc 0%,
+    #2a5298 100%,
+    #1e3c72 100%
+  );
+}
+
+.container-principal {
+  width: 95vw;
+  max-width: 450px;
+  height: 650px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 8px 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+i {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+i:hover {
+  color: #00ffcc;
+}
+
+i.active {
+  color: #00ffcc;
+}
+
+.container-principal__top {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 16px;
+  z-index: 10;
+  color: #111;
+}
+
+.container-principal.active .container-principal__top{
+  color: #111;
+}
+
+.container-principal.active .cover-image {
+  transform: scale(0.251);
+  left: 23px;
+  top: 60px;
+  border-radius:20px;
+}
+
+.menu-btn {
+  font-size: 25px;
+  color: #0077cc;
+  cursor: pointer;
+}
+
+.fa-search {
+  font-size: 25px;
+  color: #0077cc;
+}
+
+.cover-image {
+  width: 100%;
+  height: 366px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("/public/img/cover-1.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  transform-origin: 0% 0%;
+  transition: all 0.3s ease-in;
+}
+
+.player-body {
+  position: absolute;
+  top: 366px;
+  left: 0;
+  height: 286px;
+  width: 100%;
+  background: radial-gradient(
+    circle at center,
+    #00ffcc 0%,
+    #2a5298 50%,
+    #1e3c72 100%
+  );
+  transition: all 0.3s;
+}
+
+.container-principal.active .player-body{
+  height: 470px;
+  left: 0;
+  top: 180px;
+}
+
+.playlist-container {
+  height: 425px;
+  width: 100%;
+  overflow: auto;
+  position: absolute;
+  top: 378px;
+  transform-origin: 0% 0%;
+  transition: all 0.35s;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.1);
+}
+
+.container-principal.active .playlist-container{
+  top: 182px;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.playlist-table {
+  width: 100%;
+  border-spacing: 0px 2px;
+}
+
+.playlist-table tr {
+  height: 50px;
+  text-align: center;
+  background-color:rgba(81, 109, 185, 0.2);
+  text-indent: 8px;
+  transform-origin: 0% 50%;
+}
+
+.playlist-table tr:hover {
+  background-color: rgba(0, 0, 0, 0.2); ;
+  cursor: pointer;
+}
+
+.playlist-table .song-title {
+  width: 215px;
+  text-align: left;
+  text-indent: 15px;
+  transition: all 0.3s;
+}
+
+.playlist-table tr:hover .song-title {
+    padding-left: 15px;
+    width: 210px;
+}
+
+.actual-song-title{
+  position: absolute;
+  right: 23px;
+  font-size: 14px;
+  bottom: -60px;
+  transition: all 0.3s;
+}
+
+.container-principal.active .actual-song-title{
+  bottom: 10px;
+}
+
+.info-song {
+    position: absolute;
+    left: 50%;
+    top: 440px;
+    transform: translateX(-50%);
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.info-song h2 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.info-song h3 {
+    font-size: 10px;
+    color: #0077cc;
+}
+
+.container-principal.active .info-song {
+    top: 66px;
+    left: 150px;
+    text-align: left;
+    transform: translateX(0);
+    color: #0077cc;
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    bottom: 100px;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.controls #playpause {
+    font-size: 40px;
+}
+
+.container-principal.active .controls {
+    position: absolute;
+    width: 216px;
+    bottom: 4px;
+    left: -44px;
+    transform: scale(0.45);
+}
+
+.more-controls {
+    color: #fdd6d6;
+    font-size: 15px;
+    height: 45px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    z-index: 20;
+    transition: all 0.3s;
+}
+
+.container-principal.active .more-controls {
+    bottom: -60px;
+}
+
+.bar {
+    position: relative;
+    width: 400px;
+    height: 5px;
+    top: 580px;
+    left: 23px;
+    cursor: pointer;
+    transform-origin: 0% 0%;
+    background-color: #fff;
+    transition: all 0.3s;
+
+}
+
+.container-principal.active .bar {
+    top: 119px;
+    left: 150px;
+    color: #111;
+    background-color: #111;
+    transform: scale(0.6875);
+}
+
+.bar .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color:  #00ffcc;
+    position: absolute;
+    top: -4px;
+    left: 0;
+    user-select: none;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+.bar .time {
+    width: 100%;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    user-select: none;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s;
+}
+
+.bar:hover .dot {
+    transform: translateY(-50%) translateX(-50%) scale(1.3);
+}
+
+.volume-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#volume-slider {
+  width: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  background: #00ffcc;
+  height: 4px;
+  -webkit-appearance: none;
+}
+
+.volume-control:hover #volume-slider,
+#volume-slider:focus {
+  width: 80px;
+  opacity: 1;
+}
+
+#volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #00ffcc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
